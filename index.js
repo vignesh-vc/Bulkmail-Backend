@@ -11,13 +11,13 @@ app.use(express.urlencoded({ extended: true }))
 
 const nodemailer = require("nodemailer");
 
-mongoose.connect("mongodb+srv://vignesh:123@cluster0.4pubgie.mongodb.net/passkey?retryWrites=true&w=majority&appName=Cluster0").then(function () {
+mongoose.connect("mongodb+srv://ceit58vignesh24:HrML4NIAF7Fo9Uo4@cluster0.kzean.mongodb.net/passkey?retryWrites=true&w=majority&appName=Cluster0").then(function () {
     console.log("Connected to db")
 }).catch(function () {
     console.log("Failed")
 })
 
-const credential = mongoose.model("credential", {}, "bulkmail")
+const credential = mongoose.model("credential", {}, "bulkmailapp")
 
 
 app.post("/sendemail", function (req, res) {
@@ -33,8 +33,8 @@ console.log(data[0])
             service: "gmail",
     
             auth: {
-                user: data[3].toJSON().user,
-                pass: data[3].toJSON().pass,
+                user: data[0].toJSON().user,
+                pass: data[0].toJSON().pass,
             },
         });
     
